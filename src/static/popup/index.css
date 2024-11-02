@@ -6,25 +6,26 @@
   --bgColor: var(--whitesmoke);
   --searchBarFocusColor:  var(--lightblue);
   --blue: var(--blue-60);
-  --tabFocusColor: var(--blue);
   --red: var(--red-60);
   --navy: var(--ink-70);
   --yellow: var(--yellow-50);
   --purple: var(--purple-70);
   --headerHeight: 48px;
   --bodyWidth: 355px;
+  --tabFocusColor: #3F3B6C;
 }
 
 body {
   border: 1px solid var(--grey-30);
-  background-color: var(--whitesmoke);
+  background-color: #222831;
+  /*neutral*/
   font-family: 'Inter UI', sans-serif;
   width: var(--bodyWidth);
 }
 
 
 input[type="search"] {
-  color: var(--grey-90);
+  color: #EEEEEE;
   line-height: 2em;
   width: 300px;
   margin: auto;
@@ -42,6 +43,7 @@ header {
   border-bottom: 1px;
   border-style: solid;
   border-color: var(--whitesmokeBorder);
+  background-color: inherit;
 }
 
 #pref-btn {
@@ -66,12 +68,12 @@ header {
 .tab-list {
   box-sizing: border-box;
   font-size: 12px;
-	display: flex;
-	flex-direction: column;
-	overflow-y: scroll;
-	overflow-x: hidden;
-	height: 450px;
-  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 450px;
+  background-color: inherit;
   border-color: var(--whitesmokeBorder);
   border-style: solid;
   border-bottom: 1px;
@@ -98,10 +100,15 @@ header {
   transition: all 0.15s ease-in-out;
   outline: none;
   font-family: "Inter UI";
+  background-color: #31363F;
+}
+
+.search::placeholder {
+  color: var(--grey-50);
 }
 
 .search:focus {
-  border-color: var(--blue-50);
+  border-color: rgba(10, 132, 255, 0.4);
   box-shadow: 2px var(--searchBarFocusColor);
 }
 
@@ -110,20 +117,37 @@ header {
 }
 
 .tab-object {
-  color: var(--grey-90);
+  color: white;
   display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 20rem;
+  align-items: center;
+  justify-content: center;
+  width: 20rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   padding-left: 0;
   padding-right: 3rem;
   cursor: pointer;
+  box-sizing: content-box;
+
+  position: relative;
+
   /* For chrome to prevent box shrinking */
   flex-shrink: 0;
 }
 
+.tab-object::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    display: block;
+    width: 100%;
+    right: 0%;
+    /*border-bottom: 1px solid rgb(109, 23, 189)*/
+}
+
+.tab-object:hover::after, .tab-object:focus::after {
+  border-bottom: none;
+}
 .tab-object:focus {
   outline: 1px dotted black;
 }

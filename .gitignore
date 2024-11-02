@@ -6,3 +6,4 @@ dist/
 releases/
 web-ext-artifacts/
 .envrc
+.idea/
